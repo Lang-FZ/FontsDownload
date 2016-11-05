@@ -1,0 +1,20 @@
+//
+//  FontsDownload.pch
+//  FontsDownload
+//
+//  Created by 郎凤招 on 2016/11/5.
+//  Copyright © 2016年 Lang.FZ. All rights reserved.
+//
+
+#ifndef FontsDownload_pch
+#define FontsDownload_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define kScreenW [UIScreen mainScreen].bounds.size.width
+#define kScreenH [UIScreen mainScreen].bounds.size.height
+
+#import "MBProgressHUD.h"
+
+#endif /* FontsDownload_pch */
