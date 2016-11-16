@@ -129,6 +129,21 @@ static NSString * const fontsDownloadIdentifer = @"fontsDownloadCell";
         NSUInteger sampleIndex = [_fontNames indexOfObject:fontName];
         _fontsLabel.text = [NSString stringWithFormat:@"汉字测试 文字名称:\n%@",[_fontNames objectAtIndex:sampleIndex]];
         _fontsLabel.font = [UIFont fontWithName:fontName size:25.];
+        
+        
+#pragma - mark 大小
+        CTFontRef fontRef = CTFontCreateWithName((__bridge CFStringRef)fontName, 0., NULL);
+        CFStringRef fontURL = CTFontCopyAttribute(fontRef, kCTFontURLAttribute);
+//        NSLog(@"%@", (__bridge NSString *)(fontURL));
+        
+        NSString *fileStr = [NSString stringWithFormat:@"%@",(__bridge NSString *)(fontURL)];
+        
+        NSString *filePath = [fileStr substringWithRange:NSMakeRange(7, fileStr.length - 7)];
+        
+        NSLog(@"\n%@",filePath);
+        
+        NSLog(@"\n%@",[self fileSizeAtPath:filePath]);
+        
         return;
     }
     
@@ -152,12 +167,14 @@ static NSString * const fontsDownloadIdentifer = @"fontsDownloadCell";
 
         double progressValue = [[(__bridge NSDictionary *)progressParameter objectForKey:(id)kCTFontDescriptorMatchingPercentage] doubleValue];
         
+//        NSLog(@"\n%f\n%f\n%f",[[(__bridge NSDictionary *)progressParameter objectForKey:(id)kCTFontDescriptorMatchingTotalDownloadedSize] doubleValue],[[(__bridge NSDictionary *)progressParameter objectForKey:(id)kCTFontDescriptorMatchingTotalAssetSize] doubleValue],[[(__bridge NSDictionary *)progressParameter objectForKey:(id)kCTFontDescriptorMatchingCurrentAssetSize] doubleValue]);
+        
         if (state == kCTFontDescriptorMatchingDidBegin) {
             dispatch_async( dispatch_get_main_queue(), ^ {
                 // Show something in the text view to indicate that we are downloading
                 _fontsLabel.text= [NSString stringWithFormat:@"下载中\n%@", fontName];
                 _fontsLabel.font = [UIFont systemFontOfSize:25.];
-                
+            
                 NSLog(@"Begin Matching");
             });
         } else if (state == kCTFontDescriptorMatchingDidFinish) {
@@ -171,9 +188,18 @@ static NSString * const fontsDownloadIdentifer = @"fontsDownloadCell";
                 _fontsLabel.font = [UIFont fontWithName:fontName size:17.];
                 
 // Log the font URL in the console
+#pragma - mark 大小
                 CTFontRef fontRef = CTFontCreateWithName((__bridge CFStringRef)fontName, 0., NULL);
                 CFStringRef fontURL = CTFontCopyAttribute(fontRef, kCTFontURLAttribute);
-                NSLog(@"%@", (__bridge NSString *)(fontURL));
+//        NSLog(@"%@", (__bridge NSString *)(fontURL));
+                
+                NSString *fileStr = [NSString stringWithFormat:@"%@",(__bridge NSString *)(fontURL)];
+                
+                NSString *filePath = [fileStr substringWithRange:NSMakeRange(7, fileStr.length - 7)];
+                
+                NSLog(@"\n%@",filePath);
+                
+                NSLog(@"\n%@",[self fileSizeAtPath:filePath]);
                 CFRelease(fontURL);
                 CFRelease(fontRef);
                 
@@ -218,6 +244,38 @@ static NSString * const fontsDownloadIdentifer = @"fontsDownloadCell";
         }
         return (bool)YES;
     });
+}
+
+//单个文件的大小
+- (NSString *)fileSizeAtPath:(NSString *)filePathStr{
+    
+//    NSData* data = [NSData dataWithContentsOfFile:[VoiceRecorderBaseVC getPathByFileName:_convertAmr ofType:@"amr"]];
+//    NSLog(@"amrlength = %d",data.length);
+//    NSString * amr = [NSString stringWithFormat:@"amrlength = %d",data.length];
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    
+    NSString *filePath = [filePathStr stringByRemovingPercentEncoding];
+    
+    if ([manager fileExistsAtPath:filePath]) {
+        
+        NSString *fileSize = [NSString string];
+        
+        if ([[manager attributesOfItemAtPath:filePath error:nil] fileSize] > (1000 * 1000)) {
+            
+            fileSize = [NSString stringWithFormat:@"%.2fM",[[manager attributesOfItemAtPath:filePath error:nil] fileSize] / (1000 * 1000.0)];
+        } else if ([[manager attributesOfItemAtPath:filePath error:nil] fileSize] > 1000) {
+        
+            fileSize = [NSString stringWithFormat:@"%.2fK",[[manager attributesOfItemAtPath:filePath error:nil] fileSize] / 1000.0];
+        } else if ([[manager attributesOfItemAtPath:filePath error:nil] fileSize] > 0) {
+            
+            fileSize = [NSString stringWithFormat:@"%lluB",[[manager attributesOfItemAtPath:filePath error:nil] fileSize]];
+        }
+        
+        return fileSize;
+    }
+    return nil;
+    
 }
 
 - (void)viewDidLoad {
