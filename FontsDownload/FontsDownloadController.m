@@ -130,7 +130,6 @@ static NSString * const fontsDownloadIdentifer = @"fontsDownloadCell";
         _fontsLabel.text = [NSString stringWithFormat:@"汉字测试 文字名称:\n%@",[_fontNames objectAtIndex:sampleIndex]];
         _fontsLabel.font = [UIFont fontWithName:fontName size:25.];
         
-        
 #pragma - mark 大小
         CTFontRef fontRef = CTFontCreateWithName((__bridge CFStringRef)fontName, 0., NULL);
         CFStringRef fontURL = CTFontCopyAttribute(fontRef, kCTFontURLAttribute);
