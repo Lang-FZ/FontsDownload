@@ -8,6 +8,7 @@
 
 #import "FontsDownloadController.h"
 #import <CoreText/CoreText.h>
+#import "MBProgressHUD.h"
 
 @interface FontsDownloadController () <UITableViewDelegate, UITableViewDataSource, MBProgressHUDDelegate>
 
@@ -17,6 +18,9 @@
 @property (nonatomic, copy) NSString *errorMessage;
 
 @end
+
+#define kScreenW [UIScreen mainScreen].bounds.size.width
+#define kScreenH [UIScreen mainScreen].bounds.size.height
 
 static NSString * const fontsDownloadIdentifer = @"fontsDownloadCell";
 

@@ -28,6 +28,7 @@
 		5E47D9101DCD6C4600B7EDC8 /* FontsDownloadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontsDownloadController.m; sourceTree = "<group>"; };
 		5E47D9121DCD77C200B7EDC8 /* FontsDownload.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontsDownload.pch; sourceTree = "<group>"; };
 		5E47D9161DCDAE3D00B7EDC8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5EB6F74F1F459E5400C70C8F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		770494363DD8270615CAFA9E /* Pods-FontsDownload.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontsDownload.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FontsDownload/Pods-FontsDownload.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +77,7 @@
 				5E47D8FC1DCD6B3A00B7EDC8 /* AppDelegate.m */,
 				5E47D90F1DCD6C4600B7EDC8 /* FontsDownloadController.h */,
 				5E47D9101DCD6C4600B7EDC8 /* FontsDownloadController.m */,
+				5EB6F74F1F459E5400C70C8F /* Header.h */,
 				5E47D9161DCDAE3D00B7EDC8 /* LaunchScreen.storyboard */,
 				5E47D9041DCD6B3A00B7EDC8 /* Assets.xcassets */,
 				5E47D9091DCD6B3A00B7EDC8 /* Info.plist */,
