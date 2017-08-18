@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   s.source_files  = "FontsDownload", "FontsDownload/FontsDownloadController/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
-  #s.public_header_files = "FontsDownload/Header.h"
+  s.public_header_files = "FontsDownload/Header.h"
 
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
