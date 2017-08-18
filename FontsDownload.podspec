@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "FontsDownload"
-  s.version      = "1.0"
+  s.version      = "1.0.1"
   s.summary      = "远程下载字体"
   s.description  = <<-DESC
         远程下载字体并显示效果
