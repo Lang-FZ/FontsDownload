@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "FontsDownloadController.h"
+#import "FontsDownloadController/FontsDownloadController.h"
 
 @interface AppDelegate ()
 
