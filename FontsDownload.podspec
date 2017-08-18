@@ -48,6 +48,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency "MBProgressHUD"
+  s.dependency "MBProgressHUD", :git => 'git@github.com:jdg/MBProgressHUD.git'
 
 end
