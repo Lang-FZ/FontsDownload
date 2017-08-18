@@ -29,10 +29,10 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/Lang-FZ/FontsDownload.git", :tag => "#{s.version}" }
 
-  s.source_files  = "FontsDownload/Header.h", "FontsDownload/FontsDownloadController/*.{h,m}"
+  s.source_files  = "FontsDownload", "FontsDownload/FontsDownloadController/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
-  s.public_header_files = "FontsDownload/Header.h"
+  #s.public_header_files = "FontsDownload/Header.h"
 
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
@@ -48,6 +48,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency "MBProgressHUD", "~> 1.0.0"
+  s.dependency "MBProgressHUD"
 
 end
