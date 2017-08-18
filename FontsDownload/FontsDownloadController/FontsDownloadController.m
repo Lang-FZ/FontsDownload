@@ -33,9 +33,16 @@ static NSString * const fontsDownloadIdentifer = @"fontsDownloadCell";
     if (self) {
         
         [self createFontsDownloadView];
-        
     }
     return self;
+}
+    
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+    
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
 }
 
 - (void)createFontsDownloadView {
@@ -53,17 +60,11 @@ static NSString * const fontsDownloadIdentifer = @"fontsDownloadCell";
     }
     _fontNames = fontArr;
     
-    _fontsTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, kScreenW, kScreenH - 20 - 200) style:UITableViewStylePlain];
-    _fontsTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _fontsTable.delegate = self;
-    _fontsTable.dataSource = self;
-    [self.view addSubview:_fontsTable];
-    
-    _fontsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, kScreenH - 200, kScreenW, 200)];
-    _fontsLabel.numberOfLines = 0;
-    _fontsLabel.backgroundColor = [UIColor cyanColor];
-    [self.view addSubview:_fontsLabel];
+    [self.view addSubview:self.fontsTable];
+    [self.view addSubview:self.fontsLabel];
 }
+
+#pragma mark - tableView 代理 数据源
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -107,6 +108,8 @@ static NSString * const fontsDownloadIdentifer = @"fontsDownloadCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self asynchronouslySetFontName:_fontNames[indexPath.row]];
 }
+
+#pragma mark - 下载字体
 
 - (void)asynchronouslySetFontName:(NSString *)fontName {
 
@@ -249,7 +252,8 @@ static NSString * const fontsDownloadIdentifer = @"fontsDownloadCell";
     });
 }
 
-//单个文件的大小
+#pragma mark - 计算字体大小
+
 - (NSString *)fileSizeAtPath:(NSString *)filePathStr{
     
 //    NSData* data = [NSData dataWithContentsOfFile:[VoiceRecorderBaseVC getPathByFileName:_convertAmr ofType:@"amr"]];
@@ -278,25 +282,31 @@ static NSString * const fontsDownloadIdentifer = @"fontsDownloadCell";
         return fileSize;
     }
     return nil;
+}
     
+#pragma mark - 懒加载
+    
+- (UITableView *)fontsTable {
+    
+    if (!_fontsTable) {
+        
+        _fontsTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, kScreenW, kScreenH - 20 - 200) style:UITableViewStylePlain];
+        _fontsTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _fontsTable.delegate = self;
+        _fontsTable.dataSource = self;
+    }
+    return _fontsTable;
 }
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+    
+- (UILabel *)fontsLabel {
+    
+    if (!_fontsLabel) {
+        
+        _fontsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, kScreenH - 200, kScreenW, 200)];
+        _fontsLabel.numberOfLines = 0;
+        _fontsLabel.backgroundColor = [UIColor cyanColor];
+    }
+    return _fontsLabel;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
