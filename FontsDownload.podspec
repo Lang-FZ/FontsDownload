@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
   s.author             = { "LangFZ" => "446003664@qq.com" }
   # Or just: s.author    = "LangFZ"
-  # s.authors            = { "LangFZ" => "446003664@qq.com" }
+  s.authors            = { "LangFZ" => "446003664@qq.com" }
   # s.social_media_url   = "http://twitter.com/LangFZ"
 
   # s.platform     = :ios
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/Lang-FZ/FontsDownload.git", :tag => "#{s.version}" }
 
-  s.source_files  = "FontsDownload", "FontsDownload/FontsDownloadController/*.{h,m}"
+  s.source_files  = "FontsDownload/Header.h", "FontsDownload/FontsDownloadController/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
   s.public_header_files = "FontsDownload/Header.h"
