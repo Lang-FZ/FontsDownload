@@ -10,7 +10,6 @@
 		5E47D8FA1DCD6B3A00B7EDC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E47D8F91DCD6B3A00B7EDC8 /* main.m */; };
 		5E47D8FD1DCD6B3A00B7EDC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E47D8FC1DCD6B3A00B7EDC8 /* AppDelegate.m */; };
 		5E47D9051DCD6B3A00B7EDC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E47D9041DCD6B3A00B7EDC8 /* Assets.xcassets */; };
-		5E47D9111DCD6C4600B7EDC8 /* FontsDownloadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E47D9101DCD6C4600B7EDC8 /* FontsDownloadController.m */; };
 		5E47D9171DCDAE3D00B7EDC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E47D9161DCDAE3D00B7EDC8 /* LaunchScreen.storyboard */; };
 		AA9C907A652BCE3ED0DF9217 /* libPods-FontsDownload.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E124B644738A7A5D2684131 /* libPods-FontsDownload.a */; };
 /* End PBXBuildFile section */
@@ -24,11 +23,11 @@
 		5E47D8FC1DCD6B3A00B7EDC8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5E47D9041DCD6B3A00B7EDC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E47D9091DCD6B3A00B7EDC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5E47D90F1DCD6C4600B7EDC8 /* FontsDownloadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontsDownloadController.h; sourceTree = "<group>"; };
-		5E47D9101DCD6C4600B7EDC8 /* FontsDownloadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontsDownloadController.m; sourceTree = "<group>"; };
 		5E47D9121DCD77C200B7EDC8 /* FontsDownload.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontsDownload.pch; sourceTree = "<group>"; };
 		5E47D9161DCDAE3D00B7EDC8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EB6F74F1F459E5400C70C8F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		5ECBDA261F4678C90034D984 /* FontsDownloadController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontsDownloadController.h; sourceTree = "<group>"; };
+		5ECBDA271F4678C90034D984 /* FontsDownloadController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FontsDownloadController.m; sourceTree = "<group>"; };
 		770494363DD8270615CAFA9E /* Pods-FontsDownload.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontsDownload.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FontsDownload/Pods-FontsDownload.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,10 +72,9 @@
 		5E47D8F71DCD6B3A00B7EDC8 /* FontsDownload */ = {
 			isa = PBXGroup;
 			children = (
+				5ECBDA251F4678C90034D984 /* FontsDownloadController */,
 				5E47D8FB1DCD6B3A00B7EDC8 /* AppDelegate.h */,
 				5E47D8FC1DCD6B3A00B7EDC8 /* AppDelegate.m */,
-				5E47D90F1DCD6C4600B7EDC8 /* FontsDownloadController.h */,
-				5E47D9101DCD6C4600B7EDC8 /* FontsDownloadController.m */,
 				5EB6F74F1F459E5400C70C8F /* Header.h */,
 				5E47D9161DCDAE3D00B7EDC8 /* LaunchScreen.storyboard */,
 				5E47D9041DCD6B3A00B7EDC8 /* Assets.xcassets */,
@@ -93,6 +91,15 @@
 				5E47D9121DCD77C200B7EDC8 /* FontsDownload.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5ECBDA251F4678C90034D984 /* FontsDownloadController */ = {
+			isa = PBXGroup;
+			children = (
+				5ECBDA261F4678C90034D984 /* FontsDownloadController.h */,
+				5ECBDA271F4678C90034D984 /* FontsDownloadController.m */,
+			);
+			path = FontsDownloadController;
 			sourceTree = "<group>";
 		};
 		A1143716AEE9524E5170395E /* Pods */ = {
@@ -227,7 +234,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E47D8FD1DCD6B3A00B7EDC8 /* AppDelegate.m in Sources */,
-				5E47D9111DCD6C4600B7EDC8 /* FontsDownloadController.m in Sources */,
 				5E47D8FA1DCD6B3A00B7EDC8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
